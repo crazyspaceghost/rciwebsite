@@ -53,10 +53,16 @@
             cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
+            transition: transform 0.3s, background-color 0.2s ease;
         }
 
         .nav-button:hover {
+            transform: scale(1.1); /* Button grows when hovered */
             background-color: #666;
+        }
+
+        .nav-button:active {
+            transform: scale(0.95); /* Button shrinks when clicked */
         }
 
         /* Section styling */
@@ -67,10 +73,13 @@
             border-radius: 10px;
             background-color: #222;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
         }
 
         .active {
             display: block;
+            opacity: 1;
         }
 
         /* Product Box Styling */
@@ -373,7 +382,7 @@
 </footer>
 
 <script>
-    // Function to show the selected section and hide others
+    // Function to show the selected section and hide others with drop-down animation
     function showSection(sectionId) {
         const sections = document.querySelectorAll('.section');
         sections.forEach(section => {
